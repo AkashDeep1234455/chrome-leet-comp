@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Company",
+    "description": "This extension gives you info about the different companies in which certain LeetCode question is asked",
+    "version": "1.0",
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": "./images/letter-c.png"
+    },
+    "permissions": [
+      "scripting",
+      "activeTab",
+      "storage",
+      "tabs"
+    ],
+    "host_permissions": [
+      "https://leetcode.com/problems/*"
+    ],
+    "content_scripts": [
+      {
+        "js": ["scripts/content.js"],
+        "matches": [
+          "https://leetcode.com/problems/*"
+        ],
+        "run_at": "document_start" 
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
+  
